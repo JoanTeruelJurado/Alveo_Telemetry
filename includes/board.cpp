@@ -1,9 +1,7 @@
 /*                                                                                                                                                                                           #
-# This file contains confidential and proprietary information of Xilinx, Inc.                                                                                              
-#
-# This file was generated for a Bachelor's thesis at BSC-CNS, under no circumstance            
-# it tries to behave as it was made by Xilinx, or to gain any profit from it.                  
-
+# Under no circumstance this file tries to behave as it was made by Xilinx, or to gain any profit from it.                
+#  
+# Copyright 2022 Barcelona Supercomputing Center-Centro Nacional de Supercomputación
 # Licensed under the Solderpad Hardware License v 2.1 (the "License");
 # you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0.
 # You may obtain a copy of the License at
@@ -72,7 +70,6 @@ char* alveo_board::print_sensor_data(int terminal_row, int terminal_col) {
     print_power();
 
     std::vector<uint32_t> values; //first position: address offset; second position: mask; third position 
-    //if (!FLAG_INFO) {}
     if (FLAG_INFO) {
         auto it = REG_FILE_LIST.begin();
         while (it != REG_FILE_LIST.end()) { 
@@ -174,7 +171,6 @@ void alveo_board::CSV_sensor_data(){
 }
 
 void alveo_board::CSV_header(){
-    //TARGET_FD_CSV = 3
     //Primarydata
     CSV_WRITE("Target, P_12V PEX, P_12V AUX, P_3V3 PEX, P_3V3 AUX, Total power,");
     //Secondary data
