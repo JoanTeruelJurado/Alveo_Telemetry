@@ -1,9 +1,7 @@
 /*                                                                                                                                                                                           #
-# This file contains confidential and proprietary information of Xilinx, Inc.                                                                                                
-#
-# This file was generated for a Bachelor's thesis at BSC-CNS, under no circumstance            
-# it tries to behave as it was made by Xilinx, or to gain any profit from it.                  
-
+# Under no circumstance this file tries to behave as it was made by Xilinx, or to gain any profit from it.                
+#  
+# Copyright 2022 Barcelona Supercomputing Center-Centro Nacional de Supercomputación
 # Licensed under the Solderpad Hardware License v 2.1 (the "License");
 # you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0.
 # You may obtain a copy of the License at
