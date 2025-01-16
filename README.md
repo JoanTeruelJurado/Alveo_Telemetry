@@ -1,6 +1,18 @@
 # Alveo_Telemetry
 This tool enables the user to establish a succesfull connection with the Alveo CMS IP. Which is an IP dedicated to extract data from the embedded processor which monitors the FPGA. This tool is independent from the type of driver and DMA controller used (QDMA or XDMA). The user can create their own platform without much modifications needed.
 
+Automatically this tools is able to detect any ALVEO FPGA and interconnect with it. Given that the application is capable to read and write to: <br/>
+`/sys/bus/pci/devices/<BDF>/resourceX` Where X is the bar the CMS is located to. Normally, Bar 2 if done through AXI-LITE. <br />
+Give this folder user read and write permissions. <br/>
+
+Once completed, it will try to see if there is any suitable CMS/CMC available reading the 'Magic register', which is a register with a fixed value. Once the value read is correct, the FPGA will desactivate the reset register and the lectures on all available sensors for the specific FPGA connected will proceed. <br/>
+
+Features:
+  * Capable to connect to any Xilinx platform or user made design.
+  * changing data frequency reading; minimum 2milliseconds.
+  * Output data in CSV format; easy to analise it later.
+  * Easy code maintenance and modifications.
+
 ## Installation
 To install, download this repository. Execute the makefile and ready to go.
 It may require to additionally install some other libraries as 'pci/pci.h' or update C++ compiler.
@@ -13,13 +25,13 @@ When there is a FPGA with a working system which contains either some of the Xil
 * '-csv [optional]' Activate CSV support, to be written on the same folder as 'cms_data.csv' <br/>
   * '-o <csv_filename.csv>' With relative path (implicit './'): i.e. '/my_previous_folder/desktop/my_csv.csv' <br/>
   * '-e' write 'extended' data from all FPGAs sensors <br/>
-* '-d <BDF>' Specify to only get data from one device <br/>
-* '-n <num devices> {<list of devices>}' Specify the number of devices: i.e. -n 2 0000:08:00.0 0000:09:00.0 <br/>
+* '-d <_BDF>' Specify to only get data from one device <br/>
+* '-n <num_devices> {<list_of_devices>}' Specify the number of devices: i.e. -n 2 0000:08:00.0 0000:09:00.0 <br/>
 * '-a' Show data from all devices <br/>
 * '-v' Extra verbosity, Not made to be used with GUI with more than 4 FPGAs <br/>
-* '-t <time milliseconds>' Specify refresh time in milliseconds (Minimum 500ms) <br/>
-* '-r <BDF>' Specify Device to reset <br/>
-* '-i <BDF>' Print information from device <br/>
+* '-t <time_milliseconds>' Specify refresh time in milliseconds (Minimum 500ms) <br/>
+* '-r <_BDF>' Specify Device to reset <br/>
+* '-i <_BDF>' Print information from device <br/>
     
 ## Modifying the content
 A user can create their own platform modying a couple of lines in file 'board.cpp'.
