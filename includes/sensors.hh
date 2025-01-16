@@ -82,8 +82,8 @@ YOU CAN READ THEM THROUGH BAR ACCESSES GIVEN AN OFFSET
 #define	REG_VCC1V2_BTM		        "VCC1V2_BTM    (V)", {0x0BC, 0b11000000, 1000}
 #define	REG_12V_PEX_I_IN	        "12V_PEX_I_IN  (A)", {0x0C8, 0b11111111, 1000}
 #define	REG_12V_AUX_I_IN	        "12V_AUX_I_IN  (A)", {0x0D4, 0b11011011, 1000}
-#define	REG_VCCINT_V		        "VCCINT_V      (V)", {0x0E0, 0b11111111, 1000} // LUTs + DSP ...
-#define	REG_VCCINT_I		        "VCCINT_I      (A)", {0x0EC, 0b11111111, 1000}
+#define	REG_VCCINT_V		        "VCCINT_V      (V)", {0x0E0, 0b11111111, 1000} // Voltage supply for the internal core logic: supplies power to the internal logic functions, such as CLBs, block RAM, and DSP blocks.
+#define	REG_VCCINT_I		        "VCCINT_I      (A)", {0x0EC, 0b11111111, 1000} // Current supply for the internal core logic: supplies power to the internal logic functions, such as CLBs, block RAM, and DSP blocks.
 #define	REG_FPGA_TEMP			    "FPGA_TEMP     (C)", {0x0F8, 0b11111111, 0x01}
 #define	REG_FAN_TEMP		        "FAN_TEMP      (C)", {0x104, 0b11000000, 0x01} //FAN
 #define	REG_DIMM_TEMP0		        "DIMM_TEMP0    (C)", {0x110, 0b11000000, 0x01}
@@ -121,8 +121,8 @@ YOU CAN READ THEM THROUGH BAR ACCESSES GIVEN AN OFFSET
 #define	REG_V12_IN_I                "V12_IN_I      (A)", {0x320, 0b00000000, 1000}
 #define	REG_V12_IN_AUX0_I           "V12_IN_AUX0_I (A)", {0x32C, 0b00000000, 1000}
 #define	REG_V12_IN_AUX1_I           "V12_IN_AUX1_I (A)", {0x338, 0b00000000, 1000}
-#define	REG_VCCAUX                  "VCCAUX        (V)", {0x344, 0b00000011, 1000}
-#define	REG_VCCAUX_PMC              "VCCAUX_PMC    (V)", {0x350, 0b00000000, 1000}
+#define	REG_VCCAUX                  "VCCAUX        (V)", {0x344, 0b00000011, 1000} //Voltage supply for auxiliary logic: supplies power to the various auxiliary circuits, such as clock managers and dedicated configuration pins.
+#define	REG_VCCAUX_PMC              "VCCAUX_PMC    (V)", {0x350, 0b00000000, 1000} //Voltage supply for auxiliary logic: supplies power to the various auxiliary circuits, such as clock managers and dedicated configuration pins.
 #define	REG_VCCRAM                  "VCCRAM        (V)", {0x35C, 0b00000000, 1000}
 #define	REG_VCCINT_VCU_0V9          "VCCINT_VCU_0V9(V)", {0x380, 0b00000000, 1000}
 #define REG_1V2_VCCIO_MAX           "1V2_VCCIO     (V)", {0x38C, 0b00000000, 1000}
@@ -133,9 +133,9 @@ YOU CAN READ THEM THROUGH BAR ACCESSES GIVEN AN OFFSET
 #define REG_GTVCC_AUX_MAX           "GTVCC_AUX     (V)", {0x3D4, 0b00000000, 1000}
 #define REG_HBM_1V2_I_MAX           "HBM_1V2_I     (A)", {0x410, 0b00010000, 1000} //HBM current
 #define REG_VCC1V5_MAX              "VCC1V5        (V)", {0x41C, 0b00000001, 1000}
-#define REG_MGTAVCC_MAX             "MGTAVCC       (V)", {0x428, 0b00000011, 1000}
-#define REG_MGTAVTT_I_MAX           "MGTAVTT_I     (A)", {0x434, 0b00000010, 1000}
-#define REG_MGTAVCC_I_MAX           "MGTAVCC_I     (A)", {0x440, 0b00000011, 1000}
+#define REG_MGTAVCC_MAX             "MGTAVCC       (V)", {0x428, 0b00000011, 1000} //Voltage supply for the GTX transceiver: powers the internal analog circuits of the GTX transceiver. This includes analog circuits for the PLLs, transmitters, and receivers.
+#define REG_MGTAVTT_I_MAX           "MGTAVTT_I     (A)", {0x434, 0b00000010, 1000} //Current supply for GTX transceiver termination circuits
+#define REG_MGTAVCC_I_MAX           "MGTAVCC_I     (A)", {0x440, 0b00000011, 1000} //Current supply for the GTX transceiver: powers the internal analog circuits of the GTX transceiver. This includes analog circuits for the PLLs, transmitters, and receivers.
 
 #define	CMC_HOST_MSG_REG            0x1000 // System registers, present on all FPGAs
 #define	CMC_SOC_OPCODE_REG		    0x1004 // System registers, present on all FPGAs
