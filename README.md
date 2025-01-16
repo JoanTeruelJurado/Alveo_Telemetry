@@ -12,6 +12,7 @@ Features:
   * changing data frequency reading; minimum 2milliseconds.
   * Output data in CSV format; easy to analise it later.
   * Easy code maintenance and modifications.
+  * Capable of connecting to multiple FPGAs simultaneously.
 
 ## Installation
 To install, download this repository. Execute the makefile and ready to go.
